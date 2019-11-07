@@ -1,36 +1,33 @@
-let AWS = require('aws-sdk');
-const s3 = new AWS.S3();
+let AWS = require("aws-sdk");
+let rekog = new AWS.Rekognition();
 
-exports.handler = function (event, context, callback) {
+exports.handler = function(event, context, callback) {
+    //console.log(JSON.stringify(event, null, 2));
 
-    callback(null, { "message": "Successfully executed" });
-}
-s3.listObjects({
-    'Bucket': 'com.sigma.test.422161862974.ahamednawasmohamed.us-east-1',
-    'MaxKeys': 10,
-    'Prefix': ''
-}).promise()
+    let s3 = event.Records[0].s3;
+    rekog.detectLabels({
+        Image: {
+            S3Object: {
+                Bucket: s3.bucket.name,
+                Name: s3.object.key
+            }
+        },
+        MaxLabels: 1
+    }).promise()
     .then(data => {
-        console.log(data);           // successful response
-        /*
-        data = {
-            Contents: [
-                {
-                   ETag: "\"70ee1738b6b21e2c8a43f3a5ab0eee71\"",
-                   Key: "example1.jpg",
-                   LastModified: "<Date Representation>",
-                   Owner: {
-                      DisplayName: "myname",
-                      ID: "12345example25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
-                   },
-                   Size: 11,
-                   StorageClass: "STANDARD"
-                },
-                // {...}
-            ]
-        }
-        */
+        console.log(data);
+        callback(null, {});
     })
-    .catch(err => {
-        console.log(err, err.stack); // an error occurred
-    });
+    .catch(err => callback(err));
+}
+
+{
+    "Effect": "Allow",
+    "Action": "rekognition:*",
+    "Resource": "*"
+},
+{
+    "Effect": "Allow",
+    "Action": "s3:GetObject",
+    "Resource": "arn:aws:s3:::slp-animal-uploads/*"
+}
