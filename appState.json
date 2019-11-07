@@ -1,0 +1,77 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "d675cb68-c22d-4f42-9eaf-13267a5f3068": {
+        "id": "d675cb68-c22d-4f42-9eaf-13267a5f3068",
+        "parent": null,
+        "name": "serverless-1-0-mohamed",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "28e8f074-cbb9-41da-b449-d7ae8f5e0ffd"
+        ],
+        "isRemovable": false,
+        "filePath": "serverless-1-0-mohamed"
+      },
+      "28e8f074-cbb9-41da-b449-d7ae8f5e0ffd": {
+        "id": "28e8f074-cbb9-41da-b449-d7ae8f5e0ffd",
+        "parent": "d675cb68-c22d-4f42-9eaf-13267a5f3068",
+        "name": "lambda.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "serverless-1-0-mohamed/lambda.js",
+        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}\n",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": []
+      }
+    },
+    "deletedFiles": [],
+    "rootNode": "d675cb68-c22d-4f42-9eaf-13267a5f3068",
+    "openFiles": [
+      "28e8f074-cbb9-41da-b449-d7ae8f5e0ffd"
+    ],
+    "currentFileId": "28e8f074-cbb9-41da-b449-d7ae8f5e0ffd",
+    "resources": {},
+    "customTemplate": {
+      "dialect": null,
+      "definitions": {}
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {}
+    }
+  },
+  "PROJECT_META": {
+    "projectName": "serverless-1-0-mohamed",
+    "projectDescription": "Detect and record safari animals - Serverless",
+    "projectVersion": "1.0.0",
+    "projectRegion": "us-east-1",
+    "platform": "AWS",
+    "platformRegions": {},
+    "lastSave": 1573109893421
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "serverless-1-0-mohamed",
+      "url": "https://github.com/anmohamed/serverless-1-0-mohamed"
+    }
+  }
+}
